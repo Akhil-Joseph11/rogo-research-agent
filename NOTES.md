@@ -15,7 +15,7 @@
 - Independent tool calls in the same model turn now run in parallel.
 - Added cancellation through the model and tool calls.
 - Trimmed bookkeeping-only metadata from model-facing financial payloads.
-- Added Anthropic prompt caching for the static system prompt and tool definitions, so later model calls in a request read that prefix from cache instead of reprocessing it.
+- Added Anthropic prompt caching for the stable tools/system prefix, so later model calls in a request can read that prefix from cache instead of reprocessing it.
 
 ### Research UX and API
 
@@ -34,8 +34,9 @@
 ## Results
 
 - `npm run typecheck` passes.
-- `npm test` passes 94 tests.
-- The latest paired evaluation passed 39/45 initial runs and 45/45 improved runs.
+- `npm test` passes all 94 tests.
+- The latest paired evaluation passed 39/45 checks for the unchanged initial implementation and 45/45 for the improved implementation.
+- Failed tool calls decreased from 4/141 to 0/108.
 - Mean latency decreased from 18.7s to 8.2s in the provided local benchmark.
 - Model calls decreased from 3.16 to 1.98 per turn.
 
@@ -43,7 +44,7 @@ The latency benchmark uses the exercise's simulated tool delays, so it is intend
 
 ## What I deliberately did not change
 
-I did not add external research APIs, vector search/embeddings, Redis, database persistence, authentication, multi-agent orchestration, saved conversations, token-by-token answer streaming, or a large UI redesign. These would add substantial scope without addressing the highest-impact issues in the provided exercise.
+I did not add external research APIs, vector search/embeddings, Redis, database persistence, authentication, multi-agent orchestration, saved conversations, token-by-token answer streaming, or a large UI redesign. These were outside the highest-impact scope of the provided exercise.
 
 ## One evaluation-driven fix
 
