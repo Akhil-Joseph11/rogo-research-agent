@@ -1,10 +1,11 @@
+// The original exercise code (initial commit 6588b5a), kept verbatim apart from the data import path, as the eval baseline.
 /**
  * The agent's tools. These stand in for the real research APIs — same shapes,
  * local data, plus a little latency so the app behaves like the real thing.
  */
 
 import type Anthropic from "@anthropic-ai/sdk";
-import { companies, documents, financials } from "./data.ts";
+import { companies, documents, financials } from "../../src/research/data.ts";
 
 /** Thrown when a tool cannot service a request. */
 export class ToolError extends Error {}

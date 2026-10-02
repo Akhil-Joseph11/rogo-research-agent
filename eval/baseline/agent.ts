@@ -1,9 +1,10 @@
+// The original exercise code (initial commit 6588b5a), kept verbatim apart from the data import path, as the eval baseline.
 /**
  * The research agent: a tool-use loop over the mocked research tools.
  */
 
 import Anthropic from "@anthropic-ai/sdk";
-import { companies } from "./data.ts";
+import { companies } from "../../src/research/data.ts";
 import { executeTool, toolSchemas } from "./tools.ts";
 
 const MODEL = process.env.ROGO_MODEL ?? "claude-sonnet-5";

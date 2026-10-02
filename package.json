@@ -4,17 +4,20 @@
   "type": "module",
   "scripts": {
     "dev": "concurrently -k -n server,web -c cyan,magenta \"npm:dev:server\" \"npm:dev:web\"",
-    "dev:server": "tsx watch src/server.ts",
+    "dev:server": "tsx watch src/server/server.ts",
     "dev:web": "vite",
     "typecheck": "tsc --noEmit",
-    "test": "vitest run"
+    "test": "vitest run",
+    "eval": "tsx eval/run.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.124.0",
     "dotenv": "^17.4.2",
     "express": "^5.2.1",
     "react": "^19.2.8",
-    "react-dom": "^19.2.8"
+    "react-dom": "^19.2.8",
+    "react-markdown": "^10.1.0",
+    "remark-gfm": "^4.0.1"
   },
   "devDependencies": {
     "@types/express": "^5.0.6",
